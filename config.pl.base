@@ -1,0 +1,45 @@
+use DBIx::Class::Cursor::Cached;
+
+my $home = PerlHint::Models->get('home');
+
+return {
+    database =>
+        {
+            enable_replicated => 0, # = disable_versioned
+            master =>[
+                'dbi:mysql:host=127.0.0.1;port=3306;database=somedatabase', 'someusername', 'somepassword', {
+                    on_connect_do     => ['SET NAMES utf8'],
+                    mysql_enable_utf8 => 1,
+                    cursor_class      => 'DBIx::Class::Cursor::Cached',
+                },
+            ],
+            slave => [[
+                'dbi:mysql:host=127.0.0.1;port=3306;database=somedatabase', 'someusername', 'somepassword', {
+                    on_connect_do     => ['SET NAMES utf8'],
+                    mysql_enable_utf8 => 1,
+                    cursor_class      => 'DBIx::Class::Cursor::Cached',
+                },
+            ],],
+    },
+    cache => {
+        class => 'Cache::Memcached::Fast',
+        args  => {
+            servers => ['127.0.0.1:11211'],
+            namespace => 'cache:',
+        },
+    },
+    schema_cache => {
+        class => 'Cache::Memcached::Fast',
+        args  => {
+            servers => ['127.0.0.1:11211'],
+            namespace => 'schema_cache:',
+        },
+    },
+    session => {
+        class => 'Cache::Memcached::Fast',
+        args  => {
+            servers   => ['127.0.0.1:11211'],
+            namespace => 'session:',
+        },
+    },
+};

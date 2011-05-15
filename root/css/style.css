@@ -1,0 +1,54 @@
+.tooltip {
+    background-color: #000;
+    border: 1px solid #fff;
+    padding: 10px 15px;
+    width: 200px;
+    display: none;
+    color: #fff;
+    text-align: left;
+    font-size: 12px;
+    font-family: sans-serif;
+
+    /* outline radius for mozilla/firefox only */
+    -moz-box-shadow: 0 0 10px #000;
+    -webkit-box-shadow: 0 0 10px #000;
+}
+
+.tooltip .label {
+    color: yellow;
+    width: 35px;
+}
+
+.tooltip.bottom {
+    background: url(../images/black_arrow_bottom.png);
+    padding-top: 40px;
+    height: 55px;
+}
+
+.tooltip a {
+    color: #ffff99;
+}
+
+.tooltip a:hover {
+    background-color: #333;
+}
+
+div.code {
+    margin: 2em 3em;
+    padding: 2em;
+    background-color: #efefef;
+}
+
+div.code pre {
+    line-height: 1.44;
+}
+
+a {
+    text-decoration: none;
+    color: #993333;
+    padding: 0px;
+}
+
+a:hover {
+    background-color: #ffffdd;
+}
