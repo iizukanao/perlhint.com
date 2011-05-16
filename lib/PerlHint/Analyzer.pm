@@ -94,6 +94,14 @@ my $patterns = {
             pattern => '#{Word:use}#{Whitespace}#{Number::Float:(\d).0+(\d+?)0+(\d+)}#{Structure:;}',
             description => 'perlのバージョンが$1.$2.$3未満の場合は例外を出す',
         },
+        "use_namespace_autoclean" => {
+            pattern => '#{Word:use}#{Whitespace}#{Word:namespace::autoclean}#{Structure:;}',
+            description => 'importした関数をこのパッケージのメソッドにしない ([参考](http://search.cpan.org/~bobtfish/namespace-autoclean-0.12/lib/namespace/autoclean.pm))',
+        },
+        "use_moose" => {
+            pattern => '#{Word:use}#{Whitespace}#{Word:Moose}#{Structure:;}',
+            description => 'Perlでオブジェクト指向をエレガントに使うためのモジュール。より高速化されたMouseというモジュールもある。',
+        },
 };
 
 my $escape_chars = '<>&"';
