@@ -5,7 +5,7 @@ all_from 'lib/PerlHint.pm';
 requires 'Ark';
 requires 'PPI';
 requires 'HTML::Entities';
-requires 'Text::MicroTemplate';
+requires 'Text::MicroTemplate::Extended';
 requires 'Text::Markdown';
 
 tests 't/*.t';
