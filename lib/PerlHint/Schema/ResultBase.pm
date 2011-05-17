@@ -7,9 +7,7 @@ use DateTime::TimeZone;
 
 __PACKAGE__->load_components(qw/InflateColumn::DateTime Core/);
 
-our $TZ = DateTime::TimeZone->new( name => 'Asia/Tokyo' );
-
-sub default_time_zone { $TZ }
+sub default_time_zone { PerlHint::Schema->TZ }
 
 sub sqlt_deploy_hook {
     my ($self, $sqlt_table) = @_;
@@ -21,4 +19,3 @@ sub sqlt_deploy_hook {
 }
 
 1;
-

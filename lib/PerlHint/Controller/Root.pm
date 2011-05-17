@@ -3,10 +3,8 @@ use Ark 'Controller';
 use Plack::Builder;
 use Plack::Middleware::Static;
 use Plack::Request;
-use PerlHint::Analyzer;
-use File::Temp;
 use Text::MicroTemplate qw(:all);
-use Data::UUID;
+use PerlHint::Analyzer;
 
 has '+namespace' => default => '';
 
@@ -27,7 +25,7 @@ sub hint :Local {
     my ($self, $c) = @_;
 
     my $code = $c->req->param('code');
-    my $ret = PerlHint::Analyzer::analyze(\$code);
+    my $ret = Object::Container->get('PerlHint::Analyzer')->analyze(\$code);
 
     $c->stash->{pre_code} = encoded_string($ret->{pre_code});
     $c->stash->{tip_code} = encoded_string($ret->{tip_code});
@@ -38,7 +36,9 @@ sub hint :Local {
 sub patterns :Local {
     my ($self, $c) = @_;
 
-    $c->{stash}->{patterns} = PerlHint::Analyzer::patterns();
+    my $patterns = $c->model('Schema::Pattern')->get_all_patterns;
+    $c->{stash}->{patterns} = $patterns;
+    $c->{stash}->{num_patterns} = scalar keys %$patterns;
 }
 
 sub end :Private {

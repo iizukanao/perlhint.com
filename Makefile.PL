@@ -7,6 +7,10 @@ requires 'PPI';
 requires 'HTML::Entities';
 requires 'Text::MicroTemplate::Extended';
 requires 'Text::Markdown';
+requires 'Object::Container';
+requires 'Lingua::EN::Inflect';
+requires 'JSON::XS';
+requires 'Module::Find';
 
 tests 't/*.t';
 

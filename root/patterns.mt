@@ -4,6 +4,8 @@
 
 ? block content => sub {
 <? my $patterns = $c->stash->{patterns}; ?>
+<? my $num_patterns = $c->stash->{num_patterns}; ?>
+<?= $num_patterns ?> <?= PL('pattern', $num_patterns) ?><br />
 <? foreach my $name (keys %$patterns) { ?>
 <div style="margin-bottom:1em">
 <?= $name ?><br />

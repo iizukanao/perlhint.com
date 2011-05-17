@@ -3,23 +3,24 @@ use DBIx::Class::Cursor::Cached;
 my $home = PerlHint::Models->get('home');
 
 return {
-    database =>
-        {
-            enable_replicated => 0, # = disable_versioned
-            master =>[
+    database => {
+        enable_replicated => 0,
+        master => [
+            'dbi:mysql:host=127.0.0.1;port=3306;database=somedatabase', 'someusername', 'somepassword', {
+                on_connect_do     => ['SET NAMES utf8'],
+                mysql_enable_utf8 => 1,
+                cursor_class      => 'DBIx::Class::Cursor::Cached',
+            },
+        ],
+        slave => [
+            [
                 'dbi:mysql:host=127.0.0.1;port=3306;database=somedatabase', 'someusername', 'somepassword', {
                     on_connect_do     => ['SET NAMES utf8'],
                     mysql_enable_utf8 => 1,
                     cursor_class      => 'DBIx::Class::Cursor::Cached',
                 },
             ],
-            slave => [[
-                'dbi:mysql:host=127.0.0.1;port=3306;database=somedatabase', 'someusername', 'somepassword', {
-                    on_connect_do     => ['SET NAMES utf8'],
-                    mysql_enable_utf8 => 1,
-                    cursor_class      => 'DBIx::Class::Cursor::Cached',
-                },
-            ],],
+        ],
     },
     cache => {
         class => 'Cache::Memcached::Fast',
