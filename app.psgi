@@ -1,3 +1,4 @@
+use lib qw(lib);
 use Plack::Builder;
 use Plack::Middleware::Static;
 use PerlHint;
