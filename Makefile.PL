@@ -11,6 +11,7 @@ requires 'Object::Container';
 requires 'Lingua::EN::Inflect';
 requires 'JSON::XS';
 requires 'Module::Find';
+requires 'DateTime::Format::MySQL';
 
 tests 't/*.t';
 
