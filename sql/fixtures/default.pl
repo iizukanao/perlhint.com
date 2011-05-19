@@ -93,6 +93,10 @@ my $patterns = {
             pattern => '#{Word:use}#{Whitespace}#{Word:Moose}#{Structure:;}',
             description => 'Perlでオブジェクト指向をエレガントに使うためのモジュール。より高速化されたMouseというモジュールもある。',
         },
+        "use_moose_arg" => {
+            pattern => '#{Word:use}#{Whitespace}#{Word:Any::Moose}#{Whitespace}#{Quote::Single:\'(.*?)\'}#{Structure:;}',
+            description => 'Mouse$1またはMoose$1のいずれかが使われる',
+        },
 };
 
 foreach my $name (keys %$patterns) {
