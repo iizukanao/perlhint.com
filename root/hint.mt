@@ -17,9 +17,9 @@
 <div class="code">
 
 <pre>
-<?= $c->stash->{pre_code} ?>
+<?= raw_string( stash->{pre_code} ) ?>
 </pre>
 </div>
 
-<?= $c->stash->{tip_code} ?>
+<?= raw_string( stash->{tip_code} ) ?>
 ? }

@@ -5,7 +5,7 @@
 <br />
 <a href="https://github.com/iizukanao/perlhint.com">GitHub repo</a> (参加歓迎!)<br />
 <br />
-<a href="/patterns">patterns</a><br />
+<a href="<?= $c->uri_for('/pattern/') ?>">Patterns</a><br />
 <br />
 <div style="float:left;">
  <form action="/hint" method="POST">

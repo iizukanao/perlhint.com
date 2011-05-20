@@ -7,6 +7,7 @@ use_model 'PerlHint::Models';
 
 use_plugins qw{
     Session
+    Session::State::Cookie
     Session::Store::Model
 
     +PerlHint::Context::ControllerUtils
@@ -30,6 +31,9 @@ config 'View::MT' => {
         stash => sub {
             __PACKAGE__->context->stash;
         },
+        form => sub {
+            __PACKAGE__->context->stash->{form};
+        },
         PL => sub {
             Lingua::EN::Inflect::PL(@_);
         }
@@ -49,7 +53,7 @@ config 'Plugin::Session' => {
 };
 
 config 'Plugin::Session::State::Cookie' => {
-    cookie_name => 'k-sid',
+    cookie_name => 'ph',
 };
 
 __PACKAGE__->meta->make_immutable;

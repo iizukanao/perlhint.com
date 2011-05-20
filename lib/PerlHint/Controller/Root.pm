@@ -1,10 +1,5 @@
 package PerlHint::Controller::Root;
 use Ark 'Controller';
-use Plack::Builder;
-use Plack::Middleware::Static;
-use Plack::Request;
-use Text::MicroTemplate qw(:all);
-use PerlHint::Analyzer;
 
 has '+namespace' => default => '';
 
@@ -27,18 +22,9 @@ sub hint :Local {
     my $code = $c->req->param('code');
     my $ret = Object::Container->get('PerlHint::Analyzer')->analyze(\$code);
 
-    $c->stash->{pre_code} = encoded_string($ret->{pre_code});
-    $c->stash->{tip_code} = encoded_string($ret->{tip_code});
-    $c->stash->{source} = encoded_string($ret->{source});
-}
-
-# ヒントパターン一覧表示
-sub patterns :Local {
-    my ($self, $c) = @_;
-
-    my $patterns = $c->model('Schema::Pattern')->get_all_patterns;
-    $c->{stash}->{patterns} = $patterns;
-    $c->{stash}->{num_patterns} = scalar keys %$patterns;
+    $c->stash->{pre_code} = $ret->{pre_code};
+    $c->stash->{tip_code} = $ret->{tip_code};
+    $c->stash->{source} = $ret->{source};
 }
 
 sub end :Private {

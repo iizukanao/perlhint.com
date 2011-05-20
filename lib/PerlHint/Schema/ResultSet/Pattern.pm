@@ -13,6 +13,7 @@ sub get_all_patterns {
     my $rs = $self->search;
     while ($pattern = $rs->next) {
         $patterns{$pattern->name} = {
+            id          => $pattern->id,
             pattern     => $pattern->pattern,
             description => $pattern->description,
         };
