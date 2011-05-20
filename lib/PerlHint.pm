@@ -8,6 +8,8 @@ use_model 'PerlHint::Models';
 use_plugins qw{
     Session
     Session::Store::Model
+
+    +PerlHint::Context::ControllerUtils
 };
 
 our $VERSION = '0.01';
