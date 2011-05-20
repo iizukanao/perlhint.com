@@ -1,0 +1,96 @@
+$images: "../images";
+
+@mixin smallfont {
+    font-size: 80%;
+}
+
+.tooltip {
+    background-color: #000;
+    border: 1px solid #fff;
+    padding: 10px 15px;
+    width: 200px;
+    display: none;
+    color: #fff;
+    text-align: left;
+    font-size: 12px;
+    font-family: sans-serif;
+
+    -moz-box-shadow: 0 0 10px #000;
+    -webkit-box-shadow: 0 0 10px #000;
+
+    .label {
+        color: yellow;
+        width: 35px;
+    }
+
+    .bottom {
+        background: url(#{$images}/black_arrow_bottom.png);
+        padding-top: 40px;
+        height: 55px;
+    }
+
+    a {
+        color: #ffff99;
+
+        &:hover {
+            background-color: #333;
+        }
+    }
+}
+
+div.code {
+    margin: 2em 3em;
+    padding: 2em;
+    background-color: #efefef;
+
+    pre {
+        line-height: 1.44;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #993333;
+    padding: 0px;
+
+    &:hover {
+        background-color: #ffffdd;
+    }
+}
+
+div.set {
+    .name {
+        font-family: sans-serif;
+        font-weight: bold;
+        float: left;
+    }
+
+    .controls {
+        margin-left: 0.8em;
+        float: left;
+        @include smallfont;
+    }
+
+    .pattern {
+        background-color: #ffffcc;
+        font-family: sans-serif;
+        clear: both;
+    }
+
+    .description {
+        background-color: #f0f0f0;
+        @include smallfont;
+    }
+}
+
+form.pattern-form {
+    margin-top: 1em;
+
+    .pattern {
+        width: 30em;
+    }
+
+    .description {
+        width: 30em;
+    }
+}
