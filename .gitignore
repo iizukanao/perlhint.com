@@ -19,3 +19,4 @@ plugins
 config.pl
 *~
 deploy
+.sass-cache
