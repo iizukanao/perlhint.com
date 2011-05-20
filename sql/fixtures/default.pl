@@ -97,6 +97,10 @@ my $patterns = {
             pattern => '#{Word:use}#{Whitespace}#{Word:Any::Moose}#{Whitespace}#{Quote::Single:\'(.*?)\'}#{Structure:;}',
             description => 'Mouse$1またはMoose$1のいずれかが使われる',
         },
+        "caller" => {
+            pattern => '#{Word:caller}',
+            description => '現在いるサブルーチンの呼び出し元のパッケージ名（スカラコンテキストの場合）',
+        },
 };
 
 foreach my $name (keys %$patterns) {
