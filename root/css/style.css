@@ -64,3 +64,8 @@ div.flash {
 
 div.breadcrumb {
   margin-bottom: .5em; }
+
+div.changelog {
+  padding-top: 1em;
+  font-family: monospace;
+  clear: both; }

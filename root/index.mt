@@ -19,6 +19,11 @@
  <a href="https://github.com/typester/ark-perl/raw/master/lib/Ark.pm">Ark.pm</a><br />
  <a href="https://github.com/typester/object-container-perl/raw/master/lib/Object/Container.pm">Object::Container</a><br />
 </div>
+<div class="changelog">
+<h4>ChangeLog</h4>
+2011-05-20 誰でも編集できるようにしました<br />
+2011-05-13 <a href="http://yokohama.pm.org/2011/05/yokohamapm-7-1.html">Yokohama.pm #7</a>で発表<br />
+</div>
 <div style="clear:both;">
  <br />
  <br />
