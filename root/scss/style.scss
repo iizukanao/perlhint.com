@@ -4,6 +4,11 @@ $images: "../images";
     font-size: 80%;
 }
 
+@mixin errorfont {
+    font-size: 93%;
+    color: #ff3333;
+}
+
 .tooltip {
     background-color: #000;
     border: 1px solid #fff;
@@ -60,7 +65,7 @@ a {
 
 div.set {
     .name {
-        font-family: sans-serif;
+        font-family: monospace;
         font-weight: bold;
         float: left;
     }
@@ -73,7 +78,7 @@ div.set {
 
     .pattern {
         background-color: #ffffcc;
-        font-family: sans-serif;
+        font-family: monospace;
         clear: both;
     }
 
@@ -84,13 +89,20 @@ div.set {
 }
 
 form.pattern-form {
-    margin-top: 1em;
-
-    .pattern {
+    input[type=text] {
         width: 30em;
     }
 
-    .description {
-        width: 30em;
+    .error {
+        @include errorfont;
     }
+}
+
+div.flash {
+    background-color: #ffff99;
+    margin-bottom: .5em;
+}
+
+div.breadcrumb {
+    margin-bottom: .5em;
 }

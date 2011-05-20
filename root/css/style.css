@@ -37,7 +37,7 @@ a {
     background-color: #ffffdd; }
 
 div.set .name {
-  font-family: sans-serif;
+  font-family: monospace;
   font-weight: bold;
   float: left; }
 div.set .controls {
@@ -46,15 +46,21 @@ div.set .controls {
   font-size: 80%; }
 div.set .pattern {
   background-color: #ffffcc;
-  font-family: sans-serif;
+  font-family: monospace;
   clear: both; }
 div.set .description {
   background-color: #f0f0f0;
   font-size: 80%; }
 
-form.pattern-form {
-  margin-top: 1em; }
-  form.pattern-form .pattern {
-    width: 30em; }
-  form.pattern-form .description {
-    width: 30em; }
+form.pattern-form input[type=text] {
+  width: 30em; }
+form.pattern-form .error {
+  font-size: 93%;
+  color: #ff3333; }
+
+div.flash {
+  background-color: #ffff99;
+  margin-bottom: .5em; }
+
+div.breadcrumb {
+  margin-bottom: .5em; }
