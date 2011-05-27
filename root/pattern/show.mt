@@ -13,7 +13,9 @@
   </div>
 <? } ?>
 <a href="<?= $c->uri_for('/pattern/edit/'.$pattern->id) ?>">[編集]</a>&nbsp;&nbsp;
+<!--
 <a href="<?= $c->uri_for('/pattern/delete/'.$pattern->id) ?>" onclick="return confirm('本当に削除しますか？')">[削除]</a><br />
+-->
 <h3><?= $pattern->name ?></h3>
 <dl>
     <dt>正規表現</dt>
